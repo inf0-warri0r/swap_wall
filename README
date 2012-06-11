@@ -1,0 +1,39 @@
+swap_wall - desktop wallpaper changer for linux
+================================================
+
+
+compilation:
+------------
+
+you need "libconf2-dev" and "libgtk2.0-dev" libraries to compile. install 
+them using "synaptic package manager". the use "make" command to compile.
+ 
+usage:
+-------
+
+first copy the "swap_wall" file to the "/usr/bin" folder.
+
+sudo cp swap_wall /user/bin
+
+then copy "config" file to "home folder". then add your "image folder's path", 
+"style " (scaled, centered or stretched ) and "time gap" into the "config" 
+file. then add the "swap_wall --start" command as startup Application. then 
+run it using,
+
+swap_wall --start
+
+commend. to stop it run,
+
+swap_wall --stop.
+
+if you make any changes to the "config" restart it with,
+
+swap_wall --restart
+
+command.
+
+more inf0:
+-----------
+
+	tcg.galahena@gmail.com
+	http://www.inf0warri0r.blogspot.com
