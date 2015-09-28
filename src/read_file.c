@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "swap_wall.h"
+#include "read_file.h"
 
 void read_config(char *dir, char *style, int *time_gap){
 
@@ -18,7 +20,9 @@ void read_config(char *dir, char *style, int *time_gap){
 	strcat(config_path, "/");
 	strcat(config_path, config);
 
-	FILE *fr = fopen (config_path, "rt");
+    FILE *fr = fopen(config_path, "rt");
+	if (fr == NULL)
+        exit(EXIT_FAILURE);
 
 	char *line = malloc(40);
 	fgets(line, 40, fr);
@@ -35,6 +39,8 @@ void read_config(char *dir, char *style, int *time_gap){
 	char *timeout = malloc(20);
 	fgets(timeout, 20, fr);
 	*time_gap = atoi(&timeout[5]);
+    free(timeout);
+    free(config_path);
 	fclose(fr);
 }
 
@@ -53,6 +59,7 @@ void write_pid(int pid){
 	fprintf(fp, buf);
 
 	fclose(fp);
+    free(pid_path);
 }
 
 int read_pid(){
