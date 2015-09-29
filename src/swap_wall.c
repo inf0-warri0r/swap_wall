@@ -1,5 +1,5 @@
 /*
-*Author :Tharindra Galahena
+*Author :Tharindra Galahena charles de Cuckmagne IV
 *Project:swap_wall(desktop wallpaper changer for linux)
 *Date   :11/06/2012
 */
@@ -81,14 +81,16 @@ void start_wall()
 	read_config(current_dir, style, &time_gap);
 
 	int pid = fork();
-	if(!pid){
-		while(1){
-			read_images();
-			sleep(time_gap);
-		}
-	}else{
-		write_pid(pid);
-	}
+	if(!pid)
+    {
+        while(1)
+        {
+            read_images();
+            sleep(time_gap);
+        }
+    }
+    else
+        write_pid(pid);
 }
 
 int parse_arguments(int argc, char *argv[])
